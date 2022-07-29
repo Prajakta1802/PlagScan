@@ -1,0 +1,289 @@
+#set -x
+echo "Enter roll number:"
+read user
+
+arr[0]="Practical2"
+arr[1]="Practical3"
+arr[2]="Practical5"
+arr[3]="Practical6"
+arr[4]="Practical7"
+arr[5]="Practical8"
+arr[6]="Practical9"
+arr[7]="Practical10"
+arr[8]="Practical11"
+arr[9]="Practical12"
+arr[10]="Practical13"
+arr[11]="FIFO.c"
+arr[12]="FCFS.c"
+
+prac2="No"
+prac3="No"
+prac5="No"
+prac6="No"
+prac7="No"
+prac8="No"
+prac9="No"
+prac10="No"
+prac11="No"
+prac12="No"
+prac13="No"
+prac14="No"
+prac15="No"
+p2=0
+p3=0
+p5=0
+p6=0
+p7=0
+p8=0
+p9=0
+p10=0
+p11=0
+p12=0
+p13=0
+p14=0
+p15=0
+
+
+i=0
+file=${arr}
+
+
+while [ $i -le 12 ]
+do
+j=1
+
+
+while [ $j -le 74 ]
+do
+
+if [ $j -eq $user ]
+then
+j=$(($j + 1))
+continue
+fi
+
+
+if [ ! -f /home/"cm5i"$user/$file ]
+then
+echo "$user doesn't have $file this file"
+j=$(($j + 1))
+continue
+fi
+
+if [ ! -f /home/"cm5i"$j/$file ]
+then
+echo "$j doesn't have $file this file"
+j=$(($j + 1))
+continue
+fi
+
+num=$(diff -U 0 /home/"cm5i"$user/$file /home/"cm5i"$j/$file | grep -v ^@ | tail -n +3 | wc -l)
+if [ "$file" ==  "Practical2" ]
+then
+        if [ $num -le 80 ]
+        then
+                pr2[$p2]=$j
+                p2=$(($p2 + 1))
+                prac2="Yes"
+        fi
+
+elif [ "$file" ==  "Practical3" ]
+then
+        if [ $num -le 20 ]
+        then
+                pr3[$p3]=$j
+                p3=$(($p3 + 1))
+                prac3="Yes"
+        fi
+
+elif [ "$file" ==  "Practical5" ]
+then
+        if [ $num -le 80 ]
+        then
+                 pr5[$p5]=$j
+                p5=$(($p5 + 1))
+                prac5="Yes"
+        fi
+
+elif [ "$file" ==  "Practical6" ]
+then
+        if [ $num -le 100 ]
+        then
+                 pr6[$p6]=$j
+                p6=$(($p6 + 1))
+                prac6="Yes"
+        fi
+elif [ "$file" ==  "Practical7" ]
+then
+        if [ $num -le 150 ]
+        then
+                 pr7[$p7]=$j
+                p7=$(($p7 + 1))
+                prac7="Yes"
+        fi
+elif [ "$file" ==  "Practical8" ]
+then
+        if [ $num -le 250 ]
+        then
+                 pr8[$p8]=$j
+                p8=$(($p8 + 1))
+                prac8="Yes"
+        fi
+elif [ "$file" ==  "Practical9" ]
+then
+        if [ $num -le 70 ]
+        then
+                 pr9[$p9]=$j
+                p9=$(($p9 + 1))
+                prac9="Yes"
+        fi
+        fi
+elif [ "$file" ==  "Practical10" ]
+then
+        if [ $num -le 40 ]
+        then
+                 pr10[$p10]=$j
+                p10=$(($p10 + 1))
+                prac10="Yes"
+        fi
+elif [ "$file" ==  "Practical11" ]
+then
+        if [ $num -le 30 ]
+        then
+                 pr11[$p11]=$j
+                p11=$(($p11 + 1))
+                prac11="Yes"
+        fi
+elif [ "$file" ==  "Practical12" ]
+then
+        if [ $num -le 50 ]
+        then
+                 pr12[$p12]=$j
+                p12=$(($p12 + 1))
+                prac12="Yes"
+        fi
+elif [ "$file" ==  "Practical13" ]
+then
+        if [ $num -le 40 ]
+        then
+                 pr13[$p13]=$j
+                p13=$(($p13 + 1))
+                prac13="Yes"
+        fi
+elif [ "$file" ==  "Practical14" ]
+then
+        if [ $num -le 50 ]
+        then
+                 pr14[$p14]=$j
+                p14=$(($p14 + 1))
+                prac14="Yes"
+        fi
+elif [ "$file" ==  "Practical15" ]
+then
+        if [ $num -le 50 ]
+        then
+                 pr15[$p15]=$j
+                p15=$(($p15 + 1))
+                prac15="Yes"
+        fi
+fi
+
+
+j=$(($j + 1))
+done
+
+
+file=${arr[$((i))]}
+i=$(($i + 1))
+
+done
+
+echo " "
+echo "--------------------------------------------------------------------------------------------------------------------------------------------------------------------------$
+echo " Practical2       Practical3      Practical5      Practical6      Practical7      Prcatical8      Practical9      Practical10     Practical11     Practical12     Practica$
+echo "    $prac2                 $prac3             $prac5              $prac6             $prac7              $prac8              $prac9              $prac10               $pr$
+echo "Practical14       Practical15"
+echo "    $prac14                $prac15"
+
+echo " "
+echo "-----------Copied with Numbers-------------"
+if [ ! -z "$pr2" ]
+then
+echo "For Practical 2"
+echo ${pr2[@]}
+fi
+
+if [ ! -z "$pr3" ]
+then
+echo "For Practical 3"
+echo ${pr3[@]}
+fi
+if [ ! -z "$pr5" ]
+then
+echo "For Practical 5"
+echo ${pr5[@]}
+fi
+
+if [ ! -z "$pr6" ]
+then
+echo "For Practical 6"
+echo ${pr6[@]}
+fi
+
+if [ ! -z "$pr7" ]
+then
+echo "For Practical 7"
+echo ${pr7[@]}
+fi
+
+if [ ! -z "$pr8" ]
+then
+echo "For Practical 8"
+echo ${pr8[@]}
+fi
+
+if [ ! -z "$pr9" ]
+then
+echo "For Practical 9"
+echo ${pr9[@]}
+fi
+
+
+if [ ! -z "$pr10" ]
+then
+echo "For Practical 10"
+echo ${pr10[@]}
+fi
+
+if [ ! -z  "$pr11" ]
+then
+echo "For Practical 11"
+echo ${pr11[@]}
+fi
+
+if [ ! -z "$pr12" ]
+then
+echo "For Practical 12"
+echo ${pr12[@]}
+fi
+
+if [ ! -z "$pr13" ]
+then
+echo "For Practical 13"
+echo ${pr13[@]}
+fi
+
+if [ ! -z "$pr14" ]
+then
+echo "For Practical 14"
+echo ${pr14[@]}
+fi
+
+if [ ! -z "$pr15" ]
+then
+echo "For Practical 15"
+echo ${pr15[@]}
+fi
+
+
+#This is end
