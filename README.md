@@ -20,4 +20,4 @@ Software Requirements:
     Client and Server: SSH
     
     
-<img src="https://github.com/Prajakta1802/PlagScan/tree/main/Screenshots/Result.png></img>
+<img src="https://github.com/Prajakta1802/PlagScan/blob/main/Screenshots/Result.png"></img>
