@@ -18,3 +18,6 @@ Software Requirements:
     Text Editor: Default Text Editor
     CLI: Terminal
     Client and Server: SSH
+    
+    
+<img src="https://github.com/Prajakta1802/PlagScan/tree/main/Screenshots/Result.png></img>
